@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>ENGLISH-VIETNAMESE DICTIONARY</h1>
+    <table>
+        <tr>
+            <td><input type="text" id="input" placeholder="please insert words"></td>
+            <td><button onclick="display()">Translate</button></td>
+        </tr>
+    </table>
+    <div id="result"></div>
+</body>
+</html>
+<script>
+    function translate(word){
+        let eng_word=["apple","ant","air","arm","ass"];
+        let vie_word=["quả táo",'con kiến','không khí','cánh tay','mông'];
+        let i=0;
+        let j='';
+        let flag=false;
+        for(let eng_index=0;eng_index<eng_word.length;eng_index++){
+        if(word==eng_word[eng_index]){
+            i=eng_index;
+            flag=true
+            for(let vie_index=0;vie_index<vie_word.length;vie_index++){
+                if(i==vie_index){
+                    j=vie_word[vie_index];
+                }
+            }
+        }
+        if(word!==eng_word[eng_index]){
+            flag=false;
+        }
+    }
+    let result=word+' có nghĩa là '+j;
+    document.getElementById('result').innerHTML=result;
+    }
+    function display(){
+        let input=document.getElementById('input').value;
+        translate(input)
+    }
+</script>
